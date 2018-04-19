@@ -9,18 +9,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * Created by zhc on 2018/4/18.
  */
-@Controller
+@Controller("/user")
 public class UserController {
     @Autowired
     private UserService userService;
 
     @GetMapping("/hi")
+    @ResponseBody
     public String getUser(int id) {
         return userService.getUser(id).toString();
     }
 
     @GetMapping("/test")
     public String test() {
-        return "/test";
+        return "test";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 }
